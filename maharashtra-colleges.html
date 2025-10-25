@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maharashtra Engineering Colleges - Complete Database</title>
+    <link rel="stylesheet" href="maharashtra-styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="dashboard-menu">
+                <div class="dashboard-icon" id="dashboardIcon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="dashboard-dropdown" id="dashboardDropdown">
+                    <div class="dropdown-item" onclick="goHome()">
+                        <span class="item-icon">🏠</span>
+                        <span>Home</span>
+                    </div>
+                    <div class="dropdown-item" onclick="studentLogin()">
+                        <span class="item-icon">👤</span>
+                        <span>Student Login</span>
+                    </div>
+                    <div class="dropdown-item" onclick="showFavorites()">
+                        <span class="item-icon">❤️</span>
+                        <span>Favorites</span>
+                    </div>
+                </div>
+            </div>
+            <div class="logo">
+                <div class="logo-icon">🎓</div>
+                <h1>College Guide</h1>
+            </div>
+            <div class="nav-controls">
+                <input type="text" id="searchInput" placeholder="Search colleges, branches, location...">
+                <select id="cityFilter">
+                    <option value="">All Cities</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Nagpur">Nagpur</option>
+                    <option value="Nashik">Nashik</option>
+                    <option value="Aurangabad">Aurangabad</option>
+                    <option value="Kolhapur">Kolhapur</option>
+                    <option value="Ahmednagar">Ahmednagar</option>
+                    <option value="Sangli">Sangli</option>
+                    <option value="Solapur">Solapur</option>
+                    <option value="Karad">Karad</option>
+                    <option value="Nanded">Nanded</option>
+                    <option value="Ratnagiri">Ratnagiri</option>
+                    <option value="Jalgaon">Jalgaon</option>
+                    <option value="Amravati">Amravati</option>
+                    <option value="Wardha">Wardha</option>
+                </select>
+                <select id="typeFilter">
+                    <option value="">All Types</option>
+                    <option value="Government">Government</option>
+                    <option value="Private">Private</option>
+                    <option value="Autonomous">Autonomous</option>
+                </select>
+                <select id="universityFilter">
+                    <option value="">All Universities</option>
+                    <option value="Savitribai Phule Pune University">Pune University</option>
+                    <option value="University of Mumbai">Mumbai University</option>
+                    <option value="Rashtrasant Tukadoji Maharaj Nagpur University">Nagpur University</option>
+                    <option value="Dr. Babasaheb Ambedkar Marathwada University">Marathwada University</option>
+                    <option value="Shivaji University">Shivaji University</option>
+                    <option value="Bharati Vidyapeeth University">Bharati Vidyapeeth University</option>
+                    <option value="Symbiosis International University">Symbiosis University</option>
+                    <option value="Dr. Babasaheb Ambedkar Technological University">Dbatu University</option>
+                    <option value="Autonomous">Autonomous Institutes</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-number" id="totalColleges">50+</span>
+                <span class="stat-label">Engineering Colleges</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">50K+</span>
+                <span class="stat-label">Total Seats</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Engineering Branches</span>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <section class="colleges-grid" id="collegesGrid">
+                <!-- Colleges will be loaded here -->
+            </section>
+            
+            <aside class="info-panel" id="infoPanel">
+                <h2>College Information</h2>
+                <div class="default-info">
+                    <h3>📊 Maharashtra Engineering Overview</h3>
+                    <ul>
+                        <li><strong>Total Colleges:</strong> 50+ Engineering Colleges</li>
+                        <li><strong>Government Colleges:</strong> 8+ Institutions</li>
+                        <li><strong>Private Colleges:</strong> 42+ Institutions</li>
+                        <li><strong>Annual Intake:</strong> 50,000+ Students</li>
+                        <li><strong>Top Branches:</strong> CSE, IT, Mechanical, Electrical</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Student Login</h2>
+                <span class="close-btn" id="closeModal">&times;</span>
+            </div>
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email ID:</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+            <div class="create-account-section">
+                <p>Don't have an account? <a href="#" id="createAccountLink">Create New Account</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Account Modal -->
+    <div class="login-modal" id="createAccountModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create New Account</h2>
+                <span class="close-btn" id="closeCreateModal">&times;</span>
+            </div>
+            <form class="login-form" id="createAccountForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name:</label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="newEmail">Email ID:</label>
+                    <input type="email" id="newEmail" name="newEmail" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">Password:</label>
+                    <input type="password" id="newPassword" name="newPassword" required placeholder="Create a password">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+                </div>
+                <button type="submit" class="login-btn">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="powered-by">Powered by <span class="tech-titans">TECH TITANS</span></p>
+        </div>
+    </footer>
+
+    <script src="maharashtra-script.js"></script>
+</body>
+</html>
